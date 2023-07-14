@@ -1,6 +1,6 @@
 # historian
 
-Token history interpreter for Bitcoin overlay networks
+Token history interpreter for interacting with a Bitcoin overlay network
 
 ## API
 

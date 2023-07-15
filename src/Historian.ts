@@ -1,6 +1,6 @@
 import bsv from 'babbage-bsv'
 import pushdrop from 'pushdrop'
-import { ERR_HISTORIAN_INVALID_SIG, ERR_HISTORIAN_INVALID_TOKEN } from './ERR_SIGNIA'
+import { ERR_HISTORIAN_INVALID_SIG, ERR_HISTORIAN_INVALID_TOKEN } from './ERR_HISTORIAN'
 
 /**
  * Interprets the history of a token BRC-8 envelope

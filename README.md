@@ -21,9 +21,9 @@ Interprets the history of a token BRC-8 envelope
 
 #### Parameters
 
-*   `correctOwnerKey`  the ownerKey used in pushdrop to create the locking script
-*   `correctSigningKey`  the signing key that should have been used
-*   `validate`  validation function to filter history
+*   `correctOwnerKey` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** the ownerKey used in pushdrop to create the locking script
+*   `correctSigningKey` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** the signing key that should have been used
+*   `validate` **any?** dynamic validation function to filter history
 
 #### interpret
 

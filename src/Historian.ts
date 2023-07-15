@@ -10,14 +10,14 @@ export class Historian {
   /**
    * Constructs a historian to interpret token history
    * @public
-   * @param correctOwnerKey - the ownerKey used in pushdrop to create the locking script
-   * @param correctSigningKey - the signing key that should have been used
-   * @param validate - validation function to filter history
+   * @param {string} correctOwnerKey - the ownerKey used in pushdrop to create the locking script
+   * @param {string} correctSigningKey - the signing key that should have been used
+   * @param {any} [validate] - dynamic validation function to filter history
    */
   constructor (
       public correctOwnerKey, 
       public correctSigningKey,
-      private validate
+      private validate?
     ) {
     this.correctOwnerKey = correctOwnerKey
     this.correctSigningKey = correctSigningKey
@@ -101,7 +101,7 @@ export class Historian {
       }
       return decoded.fields[1].toString()
     } catch (error) {
-      console.error(error)
+      // Do nothing. Probably not a pushdrop token
     }
   }
 }

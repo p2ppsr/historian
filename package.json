@@ -22,6 +22,7 @@
     "registry": "https://npm-registry.babbage.systems/"
   },
   "devDependencies": {
+    "@babbage/sdk": "^0.4.25",
     "@types/jest": "^29.4.0",
     "@types/node": "^18.13.0",
     "@types/node-fetch": "^2.6.2",

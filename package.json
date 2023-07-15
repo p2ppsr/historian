@@ -1,6 +1,6 @@
 {
   "name": "@cwi/historian",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "description": "Token history interpreter",
   "main": "./out/src/index.js",
   "types": "./out/src/index.d.ts",
@@ -18,6 +18,9 @@
   },
   "author": "Peer-to-peer Privacy Systems Research LLC",
   "license": "PROPRIETARY",
+  "publishConfig": {
+    "registry": "https://npm-registry.babbage.systems/"
+  },
   "devDependencies": {
     "@types/jest": "^29.4.0",
     "@types/node": "^18.13.0",

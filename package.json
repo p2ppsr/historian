@@ -1,6 +1,6 @@
 {
-  "name": "@cwi/historian",
-  "version": "0.1.1",
+  "name": "babbage-historian",
+  "version": "0.1.0",
   "description": "Token history interpreter",
   "main": "./out/src/index.js",
   "types": "./out/src/index.d.ts",
@@ -17,10 +17,7 @@
     "doc": "documentation readme src/Historian.ts -f md -s API -a public"
   },
   "author": "Peer-to-peer Privacy Systems Research LLC",
-  "license": "PROPRIETARY",
-  "publishConfig": {
-    "registry": "https://npm-registry.babbage.systems/"
-  },
+  "license": "Open BSV License",
   "devDependencies": {
     "@babbage/sdk": "^0.4.25",
     "@types/jest": "^29.4.0",

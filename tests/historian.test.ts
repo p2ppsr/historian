@@ -7,7 +7,8 @@ import bsv from 'babbage-bsv'
 let correctOwnerKey, correctSigningKey, latestEnvelope
 
 // NOTE: PushDrop.Create might have a bug when using a hardcoded private key... check this with Ty.
-const MOCK_PRIV_KEY = '71f8516ad8b8ea99b5378973a126fca3208229f1bafd05e2f1c733245fca8579'
+const MOCK_PRIV_KEY = new bsv.PrivateKey('71f8516ad8b8ea99b5378973a126fca3208229f1bafd05e2f1c733245fca8579')
+const MOCK_PUB_KEY = MOCK_PRIV_KEY.publicKey.toString('hex')
 
 const updateValue = async (updatedValue) => {
     const unlockingScript = await pushdrop.redeem({
@@ -15,8 +16,9 @@ const updateValue = async (updatedValue) => {
         outputIndex: latestEnvelope.vout,
         lockingScript: latestEnvelope.outputScript,
         outputAmount: latestEnvelope.satoshis,
-        protocolID: 'kvstore',
-        keyID: '1',
+        key: MOCK_PRIV_KEY.toString('hex'),
+        // protocolID: 'kvstore',
+        // keyID: '1',
         counterparty: 'self'
       })
 
@@ -25,8 +27,9 @@ const updateValue = async (updatedValue) => {
           'id',
           updatedValue
         ],
-        protocolID: 'kvstore',
-        keyID: '1',
+        // protocolID: 'kvstore',
+        // keyID: '1',
+        key: MOCK_PRIV_KEY.toString('hex'),
         counterparty: 'self'
       })
   
@@ -69,8 +72,7 @@ const setNewValue = async (newValue) => {
           'id',
           newValue
         ],
-        protocolID: 'kvstore',
-        keyID: '1',
+        key: MOCK_PRIV_KEY.toString('hex'),
         counterparty: 'self'
     })
     const action = await SDK.createAction({
@@ -90,18 +92,18 @@ const setNewValue = async (newValue) => {
 
 describe('TODO', () => {
     beforeAll(async () => {  
-        correctOwnerKey = await SDK.getPublicKey({
-            protocolID: 'kvstore',
-            keyID: '1',
-            counterparty: 'self',
-            forSelf: true
-        })
-        correctSigningKey = await SDK.getPublicKey({
-            protocolID: 'kvstore',
-            keyID: '1',
-            counterparty: 'self',
-            forSelf: false
-        })
+        // correctOwnerKey = await SDK.getPublicKey({
+        //     protocolID: 'kvstore',
+        //     keyID: '1',
+        //     counterparty: 'self',
+        //     forSelf: true
+        // })
+        // correctSigningKey = await SDK.getPublicKey({
+        //     protocolID: 'kvstore',
+        //     keyID: '1',
+        //     counterparty: 'self',
+        //     forSelf: false
+        // })
     })
 
     it('Test invalid envelope to interpret', async () => {
@@ -109,14 +111,14 @@ describe('TODO', () => {
         await historian.interpret({}, 0)
     })
     it('Returns history single update', async () => {
-        const historian = new Historian(correctOwnerKey, correctSigningKey)
+        const historian = new Historian(MOCK_PUB_KEY, MOCK_PUB_KEY)
         await setNewValue('defaultValue')
 
         const valueHistory = await historian.interpret(latestEnvelope, 0)
         expect(valueHistory).toEqual(['defaultValue'])
     })
     it('Returns history for several updates', async () => {
-        const historian = new Historian(correctOwnerKey, correctSigningKey)
+        const historian = new Historian(MOCK_PUB_KEY, MOCK_PUB_KEY)
 
         await setNewValue('defaultValue')
         await updateValue('updated1')

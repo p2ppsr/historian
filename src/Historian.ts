@@ -45,7 +45,7 @@ export class Historian {
 
     // Handle the current value first
     if (currentDepth === 0) {
-      const tokenValue = await this.decodeTokenValue(currentEnvelope)
+      const tokenValue = this.decodeTokenValue(currentEnvelope)
       if (tokenValue && this.validate(tokenValue)) {
         valueHistory.push(tokenValue)
       }
@@ -58,7 +58,7 @@ export class Historian {
 
     if (currentEnvelope.inputs && typeof currentEnvelope.inputs === 'object') {
       for (const inputEnvelope of Object.values(currentEnvelope.inputs)) {
-        const tokenValue = await this.decodeTokenValue(inputEnvelope)
+        const tokenValue = this.decodeTokenValue(inputEnvelope)
         if (tokenValue && this.validate(tokenValue)) {
           valueHistory.push(tokenValue)
         }
@@ -80,10 +80,13 @@ export class Historian {
    * @param inputEnvelope 
    * @returns 
    */
-  async decodeTokenValue (inputEnvelope) {
+  decodeTokenValue (inputEnvelope) {
     try {
       // Decode the data from the current output
-      const decoded = await pushdrop.decode({
+      if (!inputEnvelope.outputScript) {
+        return
+      }
+      const decoded = pushdrop.decode({
         script: inputEnvelope.outputScript,
         fieldFormat: 'buffer'
       })

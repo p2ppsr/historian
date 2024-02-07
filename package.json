@@ -38,6 +38,6 @@
     "cwi-base": "^0.3.109",
     "documentation": "^14.0.2",
     "dotenv": "^8.2.0",
-    "pushdrop": "^0.1.34"
+    "pushdrop": "^0.1.36"
   }
 }

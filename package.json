@@ -35,9 +35,9 @@
   },
   "dependencies": {
     "babbage-bsv": "^0.2.4",
-    "cwi-base": "^0.4.1",
+    "cwi-base": "^0.4.2",
     "documentation": "^14.0.2",
     "dotenv": "^8.2.0",
-    "pushdrop": "^0.1.38"
+    "pushdrop": "^0.1.39"
   }
 }

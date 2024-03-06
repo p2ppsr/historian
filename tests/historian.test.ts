@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Historian } from '../src/Historian'
-import SDK from '@babbage/sdk'
+import SDK from '@babbage/sdk-ts'
 import pushdrop from 'pushdrop'
 import bsv from 'babbage-bsv'
 

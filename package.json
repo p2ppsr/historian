@@ -1,6 +1,6 @@
 {
   "name": "babbage-historian",
-  "version": "0.2.15",
+  "version": "0.2.16",
   "description": "Token history interpreter",
   "main": "./out/src/index.js",
   "types": "./out/src/index.d.ts",
